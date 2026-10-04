@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSA Visualizer Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div>
+        <h1>🧠 DSA Visualizer</h1>
+        <p>My personal DSA playground</p>
+      </div>
+      <div class="top-actions">
+        <button id="backBtn" class="btn secondary hidden">← Back</button>
+        <button id="newFolderBtn" class="btn secondary">＋ Folder</button>
+        <button id="uploadBtn" class="btn primary">↑ Upload HTML</button>
+        <input id="fileInput" type="file" accept=".html,.htm,text/html" hidden />
+      </div>
+    </header>
+
+    <main>
+      <div id="breadcrumb" class="breadcrumb"></div>
+
+      <section id="dashboardView">
+        <div class="section-head">
+          <div>
+            <h2 id="currentTitle">My DSA Files</h2>
+            <p id="currentSubtitle">Folders and visualizers saved in this browser.</p>
+          </div>
+          <div id="itemCount" class="count"></div>
+        </div>
+
+        <div id="emptyState" class="empty hidden">
+          <div class="empty-icon">📂</div>
+          <h3>This folder is empty</h3>
+          <p>Create a folder or upload an HTML visualizer.</p>
+        </div>
+
+        <div id="itemsGrid" class="grid"></div>
+      </section>
+
+      <section id="runnerView" class="runner hidden">
+        <div class="runner-head">
+          <div>
+            <button id="runnerBackBtn" class="text-btn">← Back</button>
+            <h2 id="runnerTitle">Visualizer</h2>
+          </div>
+          <button id="closeRunnerBtn" class="btn secondary">Exit Visualizer</button>
+        </div>
+        <div class="viewer">
+          <iframe id="visualizerFrame" title="DSA Visualizer"></iframe>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <h3 id="modalTitle">Create Folder</h3>
+      <input id="modalInput" type="text" placeholder="Folder name" maxlength="80" />
+      <div class="modal-actions">
+        <button id="cancelModal" class="btn secondary">Cancel</button>
+        <button id="confirmModal" class="btn primary">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
